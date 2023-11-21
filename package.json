@@ -1,5 +1,11 @@
 {
   "devDependencies": {
     "tailwindcss": "^3.3.5"
+  },
+  "scripts": {
+    "go": "nodemon --watch './**/*.go' -e '.go' --signal SIGTERM --exec 'go run .'",
+    "tailwind": "npx tailwindcss -i ./styles/input.css -o ./styles/output.css --watch",
+    "browsersync": "browser-sync start --proxy 'localhost:8080' --files 'templates/*.html' 'styles/*.css' '/*.go'",
+    "dev": "npm run go & npm run tailwind & npm run browsersync"
   }
 }
